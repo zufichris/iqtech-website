@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "iQtech - Innovative Software Solutions",
     description: "Cutting-edge software development organization providing tailored solutions for businesses across industries.",
-    images: `${process.env.NEXT_PUBLIC_URL}/logo.png`
+    images: "/logo.png"
   }
 }
 
