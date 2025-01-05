@@ -30,7 +30,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
 
     const render = () => {
       context.clearRect(0, 0, windowWidth, windowHeight);
-      context.fillStyle = "rgba(255, 255, 255, 0.05)";
+      context.fillStyle = "rgba(18, 91, 209, 0.05)";
 
       beams.forEach((beam) => {
         context.beginPath();

@@ -49,11 +49,12 @@ export function Navbar() {
       <div className="flex h-20 py-2 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/logo.png"
+            src="/logo-light.png"
             alt="iQtech Logo"
-            height={100}
-            width={100}
-            className="invert dark:invert-0 z-0  h-full w-full aspect-square rounded-full"
+            height={60}
+            width={60}
+            priority
+            className="invert sm:h-28 sm:w-28 dark:invert-0  aspect-square rounded-full"
           />
         </Link>
 
