@@ -9,7 +9,7 @@ export default function Loading() {
           <Skeleton className="h-4 w-[80%] mx-auto" />
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {Array(6).fill(null).map((_, i) => (
+          {new Array(6).fill(null).map((_, i) => (
             <div key={i} className="space-y-4">
               <Skeleton className="h-[240px] w-full rounded-lg" />
               <Skeleton className="h-6 w-[70%]" />

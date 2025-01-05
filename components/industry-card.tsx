@@ -1,27 +1,31 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { type LucideIcon } from 'lucide-react'
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { type LucideIcon } from "lucide-react";
+import dynamic from "next/dynamic"; // Import dynamic
+import Image from "next/image";
+import React from "react";
 
 interface IndustryCardProps {
-  title: string
-  description: string
-  icon: LucideIcon
-  features: string[]
-  image: string
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  features: string[];
+  image: string;
 }
 
-export function IndustryCard({
+// Dynamically import the motion.div component from framer-motion on the client-side
+const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div), { ssr: false });
+
+export const IndustryCard: React.FC<IndustryCardProps> = ({
   title,
   description,
-  icon: Icon,
+  icon,
   features,
-  image
-}: IndustryCardProps) {
+  image,
+}) => {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -37,7 +41,7 @@ export function IndustryCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
           <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
-            <Icon className="h-5 w-5" />
+             {icon}
             <h3 className="text-lg font-bold">{title}</h3>
           </div>
         </div>
@@ -55,7 +59,6 @@ export function IndustryCard({
           </ul>
         </CardContent>
       </Card>
-    </motion.div>
-  )
-}
-
+    </MotionDiv>
+  );
+};

@@ -14,7 +14,7 @@ export default function NotFound() {
         <div className="flex gap-2">
           <Button
             variant="outline"
-            onClick={() => window.history.back()}
+          // onClick={() => window.history.back()}
           >
             Go Back
           </Button>
