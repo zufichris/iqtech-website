@@ -9,19 +9,19 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "CEO, TechStart Inc.",
     content: "iQtech transformed our business with their innovative solutions. Their team's expertise and dedication to quality are unmatched.",
-    image: "/placeholder.svg"
+    image: "/images/sara.png"
   },
   {
     name: "Michael Chen",
     role: "CTO, Global Systems",
     content: "Working with iQtech was a game-changer for our company. Their custom software solutions helped us streamline operations and boost efficiency.",
-    image: "/placeholder.svg"
+    image: "/images/chen.png"
   },
   {
     name: "Emma Davis",
     role: "Product Manager, InnovateCo",
     content: "The team at iQtech consistently delivers exceptional results. Their attention to detail and commitment to deadlines is impressive.",
-    image: "/placeholder.svg"
+    image: "/images/emma.png"
   },
 ]
 
