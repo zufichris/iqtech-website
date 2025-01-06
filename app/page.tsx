@@ -150,8 +150,8 @@ const services = [
     icon: Server,
   },
   {
-    title: "Custom Software",
-    description: "Unique, tailored solutions to meet specific client needs.",
+    title: "Cutting-Edge Technologies",
+    description: "Blockchain, AI, IoT, and more integrated into innovative projects.",
     icon: Code,
   },
   {
