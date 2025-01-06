@@ -151,7 +151,7 @@ const services = [
   },
   {
     title: "Cutting-Edge Technologies",
-    description: "Blockchain, AI, IoT, and more integrated into innovative projects.",
+    description: "Blockchain, IoT, CAD, and more integrated into innovative projects.",
     icon: Code,
   },
   {
