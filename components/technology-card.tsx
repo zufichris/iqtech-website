@@ -5,11 +5,12 @@ import { Badge } from "@/components/ui/badge"
 import { type LucideIcon } from 'lucide-react'
 import { motion } from "framer-motion"
 import React from "react"
+import Image from "next/image"
 
 interface TechnologyCardProps {
   title: string
   description: string
-  icon: React.ReactNode
+  icon: string
   tools: string[]
   category: string
 }
@@ -33,7 +34,7 @@ export function TechnologyCard({
         <CardHeader>
           <div className="flex items-center gap-2">
             <div className="rounded-lg bg-primary/10 p-2">
-              {Icon}
+              <Image src={Icon} alt={title} height={6} width={6} />
             </div>
             <div className="space-y-1">
               <h3 className="font-bold">{title}</h3>

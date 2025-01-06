@@ -1,10 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { MapPin, Mail, Phone, Twitter, Linkedin, Instagram, Facebook, Send } from 'lucide-react'
+import { Separator } from "@/components/ui/separator"
 
 export function Footer() {
   return (
     <footer className="border-t bg-background">
-      <div className=" flex flex-col gap-8 py-8 md:py-12 lg:py-16">
+      <div className="flex flex-col gap-8 py-8 md:py-12 lg:py-16">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="space-y-4">
             <h3 className="text-lg font-bold">About</h3>
@@ -47,55 +50,86 @@ export function Footer() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">Resources</h3>
-            <ul className="grid gap-2">
-              <li>
-                <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="text-sm text-muted-foreground hover:text-foreground">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/documentation" className="text-sm text-muted-foreground hover:text-foreground">
-                  Documentation
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
             <h3 className="text-lg font-bold">Contact</h3>
-            <ul className="grid gap-2">
+            <ul className="grid gap-3">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                123 Tech Street, Silicon Valley
+                <br />
+                California, USA 94025
+              </li>
               <li>
                 <a
                   href="mailto:iqtechnologyzint@gmail.com"
-                  className="text-sm text-muted-foreground hover:text-foreground"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
                 >
+                  <Mail className="h-4 w-4" />
                   iqtechnologyzint@gmail.com
                 </a>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
-                  Contact Form
-                </Link>
+                <a
+                  href="tel:+1234567890"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                >
+                  <Phone className="h-4 w-4" />
+                  +1 (234) 567-890
+                </a>
               </li>
             </ul>
           </div>
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold">Newsletter</h3>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to our newsletter for updates and insights.
+            </p>
+            <div className="flex gap-2">
+              <Input placeholder="Enter your email" type="email" className="max-w-[220px]" />
+              <Button size="icon" className="shrink-0">
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Subscribe</span>
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 border-t pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} iQtech. All rights reserved.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+
+        <Separator />
+
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex gap-4">
+            <Link href="https://twitter.com/iqtech" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-8 w-8 hover:text-primary">
+                <Twitter className="h-4 w-4" />
+                <span className="sr-only">Twitter</span>
+              </Button>
+            </Link>
+            <Link href="https://linkedin.com/company/iqtech" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-8 w-8 hover:text-primary">
+                <Linkedin className="h-4 w-4" />
+                <span className="sr-only">LinkedIn</span>
+              </Button>
+            </Link>
+            <Link href="https://instagram.com/iqtech" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-8 w-8 hover:text-primary">
+                <Instagram className="h-4 w-4" />
+                <span className="sr-only">Instagram</span>
+              </Button>
+            </Link>
+            <Link href="https://facebook.com/iqtech" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="h-8 w-8 hover:text-primary">
+                <Facebook className="h-4 w-4" />
+                <span className="sr-only">Facebook</span>
+              </Button>
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/terms" className="hover:text-foreground">
               Terms of Service
             </Link>
+            <span>© {new Date().getFullYear()} iQtech. All rights reserved.</span>
           </div>
         </div>
       </div>

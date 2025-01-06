@@ -1,12 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { MotionDiv } from "./ui/motion"
 
 const faqs = [
   {
@@ -36,43 +38,70 @@ const faqs = [
 ]
 
 export function FaqSection() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+
   return (
-    <section className=" py-12 md:py-24 lg:py-32">
-      <motion.div
+    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background to-muted/20">
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
+        className="container mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-          Frequently Asked Questions
-        </h2>
-        <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-          Find answers to common questions about our services and processes.
-        </p>
-      </motion.div>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-xl text-muted-foreground">
+            Find answers to common questions about our services and processes.
+          </p>
+        </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-[58rem] mt-8"
-      >
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent>
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </motion.div>
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full space-y-4"
+            onValueChange={(value) => setExpandedIndex(value ? parseInt(value.split('-')[1]) : null)}
+          >
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border border-muted rounded-lg overflow-hidden shadow-sm transition-shadow duration-200 hover:shadow-md"
+              >
+                <AccordionTrigger className="text-left px-6 py-4 text-lg font-medium">
+                  {faq.question}
+                </AccordionTrigger>
+                <AnimatePresence>
+                  {expandedIndex === index && (
+                    <AccordionContent
+                      forceMount
+                      className="overflow-hidden"
+                    >
+                      <MotionDiv
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className="px-6 pb-4 text-muted-foreground">{faq.answer}</p>
+                      </MotionDiv>
+                    </AccordionContent>
+                  )}
+                </AnimatePresence>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </MotionDiv>
+      </MotionDiv>
     </section>
   )
 }
