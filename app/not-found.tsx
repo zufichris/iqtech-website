@@ -7,9 +7,9 @@ export default function NotFound() {
     <div className="flex min-h-[600px] flex-col items-center justify-center">
       <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
         <FileQuestion className="h-12 w-12" />
-        <h2 className="text-3xl font-bold">Page Not Found</h2>
+        <h2 className="text-3xl font-bold">Page Not Ready</h2>
         <p className="text-muted-foreground">
-          Sorry, we couldn't find the page you're looking for.
+          Maybe I was too lazy to build this page lol
         </p>
         <div className="flex gap-2">
           <Button
