@@ -103,7 +103,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <ModeToggle />
+         // <ModeToggle />
           <Link href="/contact" className="hidden md:block">
             <Button>Contact Us</Button>
           </Link>
