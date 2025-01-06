@@ -1,13 +1,8 @@
 import { TechnologyCard } from "@/components/technology-card"
+import { technologies } from "@/lib/data/technologies"
 import { Code2, Globe, Database, Cloud, Shield, Cpu, Brain, Blocks, Server } from 'lucide-react'
 import React from "react"
-const technologies = [] as {
-  title: string
-  description: string
-  icon: React.ReactNode
-  tools: string[]
-  category: string
-}[]
+
 export default function TechnologiesPage() {
   return (
     <>
